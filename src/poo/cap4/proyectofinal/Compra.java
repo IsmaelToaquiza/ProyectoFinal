@@ -5,16 +5,14 @@
  */
 package poo.cap4.proyectofinal;
 
-/**
- *
- * @author jesuc
- */
 public class Compra extends Registro{
     
     public Compra(String id, String nombre, int cantidad, double costoUnidad, double costoTotal) {
         super(id, nombre, cantidad, costoUnidad, costoTotal);
     }
    
-    
+    void   movimientoSalida(){
+        
+    }
     
 }
