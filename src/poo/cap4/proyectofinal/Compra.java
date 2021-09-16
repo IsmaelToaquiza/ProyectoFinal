@@ -7,12 +7,15 @@ package poo.cap4.proyectofinal;
 
 public class Compra extends Registro{
     
+    public double egresoTotal;
+    
     public Compra(String id, String nombre, int cantidad, double costoUnidad, double costoTotal) {
         super(id, nombre, cantidad, costoUnidad, costoTotal);
+        
     }
    
-    void   movimientoSalida(){
-        
+    public double movimientoEntrada(int cantidad, double costoUnidad){
+        return this.egresoTotal= cantidad*costoUnidad;
     }
     
 }
