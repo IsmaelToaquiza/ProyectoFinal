@@ -59,7 +59,7 @@ public class Registro {
     }
 
     public double getCostoTotal() {
-        return costoTotal;
+        return costoTotal= this.cantidad*this.costoUnidad;
     }
 
     public void setCostoTotal(double costoTotal) {
