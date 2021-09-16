@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.cap4.proyectofinal;
-import poo.cap4.proyectofinal.Compra;
+package ec.edu.epn.ClasesProyectoFinal;
+import ec.edu.epn.ClasesProyectoFinal.Compra;
 /**
  *
  * @author AnitaGabriela

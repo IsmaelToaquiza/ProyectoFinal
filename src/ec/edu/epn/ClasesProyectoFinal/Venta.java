@@ -1,5 +1,5 @@
 
-package poo.cap4.proyectofinal;
+package ec.edu.epn.ClasesProyectoFinal;
 
 
 public class Venta extends Registro{
