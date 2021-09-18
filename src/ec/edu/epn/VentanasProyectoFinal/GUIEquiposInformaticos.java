@@ -5,8 +5,8 @@
  */
 package ec.edu.epn.VentanasProyectoFinal;
 
-import ec.edu.epn.ClasesProyectoFinal.Compra;
-import ec.edu.epn.ClasesProyectoFinal.Venta;
+
+import ec.edu.epn.ClasesProyectoFinal.*;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +16,10 @@ import java.util.ArrayList;
 public class GUIEquiposInformaticos extends javax.swing.JFrame {
 
     PnlRegistrarCompra panelRegistrarCompra;
-    PnlRegistrarVenta panelRegistrarVenta; 
+    PnlRegistrarVenta panelRegistrarVenta;
+    PnlVerificarStock panelVerificarStock;
+    
+    static ArrayList<Stock> stock;
     static ArrayList<Compra> compras;
     static ArrayList<Venta> ventas;
     /**
@@ -27,6 +30,9 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         panelRegistrarCompra = new PnlRegistrarCompra();
         panelRegistrarVenta = new PnlRegistrarVenta();
+        panelVerificarStock = new PnlVerificarStock();
+        
+        stock = new ArrayList<>();
         compras = new ArrayList<>();
         ventas = new ArrayList<>();
         
@@ -77,6 +83,11 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         mnStock.setText("Stock");
 
         mnVerificarStock.setText("Verificar Stock");
+        mnVerificarStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnVerificarStockActionPerformed(evt);
+            }
+        });
         mnStock.add(mnVerificarStock);
 
         jMenuBar1.add(mnStock);
@@ -100,7 +111,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
     private void mnRegistrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarCompraActionPerformed
         // TODO add your handling code here:
         panelRegistrarCompra.setVisible(true);
-        panelRegistrarCompra.setSize(550,300);
+        panelRegistrarCompra.setSize(550,500);
         panelRegistrarCompra.setLocation(300,50);
         this.add(panelRegistrarCompra);
         revalidate();
@@ -115,7 +126,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
     private void mnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarVentaActionPerformed
         // TODO add your handling code here:
         panelRegistrarVenta.setVisible(true);
-        panelRegistrarVenta.setSize(550,300);
+        panelRegistrarVenta.setSize(550,500);
         panelRegistrarVenta.setLocation(300,50);
         
         panelRegistrarCompra.setVisible(false);
@@ -127,6 +138,22 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_mnRegistrarVentaActionPerformed
+
+    private void mnVerificarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerificarStockActionPerformed
+        // TODO add your handling code here:
+        panelVerificarStock.setVisible(true);
+        panelVerificarStock.setSize(550, 500);
+        panelVerificarStock.setLocation(300, 50);
+   
+        panelRegistrarVenta.setVisible(false);
+        panelRegistrarCompra.setVisible(false);
+        panelVerificarStock.llenarTabla();
+        this.add(panelVerificarStock);
+        revalidate();
+        repaint();
+        
+        
+    }//GEN-LAST:event_mnVerificarStockActionPerformed
 
     /**
      * @param args the command line arguments

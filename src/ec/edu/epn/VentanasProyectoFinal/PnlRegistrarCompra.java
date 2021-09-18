@@ -208,6 +208,7 @@ public class PnlRegistrarCompra extends javax.swing.JPanel {
                 dtmModelo.addRow(new Object[]{c.getId(), c.getNombre(),
                     c.getCantidad(), c.getCostoUnidad(), c.getCostoTotal()});
             }
+            LimpiarGUI();
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un número "+
                     "para la cantidad y el costo unitario ",
@@ -217,7 +218,12 @@ public class PnlRegistrarCompra extends javax.swing.JPanel {
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnRegistrarCompraActionPerformed
-
+    public void LimpiarGUI(){
+        txtCantidad.setText("");
+        txtCostoUnidad.setText("");
+        txtId.setText("");
+        txtNombre.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarCompra;

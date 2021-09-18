@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP/Desktop/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/PnlRegistrarCompra.java</file>
-            <file>file:/C:/Users/HP/Desktop/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/GUIEquiposInformaticos.java</file>
-            <file>file:/C:/Users/HP/Desktop/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/PnlRegistrarVenta.java</file>
-            <file>file:/C:/Users/HP/Desktop/POO/ProyectoFinal/src/ec/edu/epn/ClasesProyectoFinal/Venta.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/ClasesProyectoFinal/Stock.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/PnlVerificarStock.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/GUIEquiposInformaticos.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/ClasesProyectoFinal/Compra.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/ClasesProyectoFinal/Registro.java</file>
+            <file>file:/D:/Programas%20U/Netbeans/POO/ProyectoFinal/src/ec/edu/epn/VentanasProyectoFinal/PnlRegistrarCompra.java</file>
         </group>
     </open-files>
 </project-private>

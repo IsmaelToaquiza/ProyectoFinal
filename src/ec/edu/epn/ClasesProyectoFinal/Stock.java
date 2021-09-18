@@ -15,20 +15,36 @@ public class Stock extends Registro{
     public Stock(String id, String nombre, int cantidad, double costoUnidad, double costoTotal, String existencias) {
         super(id, nombre, cantidad, costoUnidad, costoTotal);
         this.existencias = existencias;
+    }  
+    
+    public Stock(String id, String nombre, int cantidad, String existencias) {
+        super(id, nombre, cantidad);
+        this.existencias = existencias;
     }
+    
     
     public String verificarStock(int cantidadEntrada, int cantidadSalida){
         int cantidadMercancia=cantidadEntrada-cantidadSalida;
         if (cantidadMercancia < 0) {
             return this.existencias = "Se agotó el producto";
         } else {
-            return this.existencias = "Aun cuentas con el producto "+
-                    "\nLa cantidad de producto es:"+cantidadMercancia;
+            return this.existencias = "Aun cuentas con el producto ";
         }
 
     }
-          
-    
+
+    public String getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(String existencias) {
+        this.existencias = existencias;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+this.existencias; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

@@ -25,6 +25,11 @@ public class Registro {
         this.costoUnidad = costoUnidad;
         this.costoTotal = costoTotal;
     }
+    public Registro(String id, String nombre,int cantidad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+    }
 
     public String getId() {
         return id;
@@ -64,6 +69,11 @@ public class Registro {
 
     public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
+    }
+
+    @Override
+    public String toString() {
+        return this.id+this.nombre+this.cantidad; //To change body of generated methods, choose Tools | Templates.
     }
 
     
