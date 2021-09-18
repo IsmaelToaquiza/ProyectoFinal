@@ -5,7 +5,7 @@
  */
 package ec.edu.epn.VentanasProyectoFinal;
 
-import ec.edu.epn.ClasesProyectoFinal.Compra;
+import ec.edu.epn.ClasesProyectoFinal.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PnlRegistrarCompra extends javax.swing.JPanel {
     DefaultTableModel dtmModelo;
-    static ArrayList<Compra> compras = new ArrayList<>();
    
     
     /**
@@ -33,15 +32,6 @@ public class PnlRegistrarCompra extends javax.swing.JPanel {
         tblDatos.setModel(dtmModelo);
     }
 
-    public void llenarTabla(){
-         for (Compra c: GUIEquiposInformaticos.compras )
-         dtmModelo.addRow(new Object[]{c.getId(), c.getNombre(),
-             c.getCantidad(), c.getCostoUnidad(), c.getCostoTotal()});
-        
-    }
-    
-   
-    
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,12 +192,26 @@ public class PnlRegistrarCompra extends javax.swing.JPanel {
             //txtCostoTotal.setText(""+cantidad*costoUnidad);
             double costoTotal;
             costoTotal = cantidad * costoUnidad;
-            GUIEquiposInformaticos.compras.add(new Compra(id, nombre, cantidad, costoUnidad, costoTotal));
+            Listas.getCompras().add(new Compra("", id, nombre, cantidad, costoUnidad, costoTotal));
+            Listas.getProductos().add(new Producto(id, nombre, cantidad, costoUnidad, costoTotal));
+            
             dtmModelo.setRowCount(0);
-            for (Compra c : GUIEquiposInformaticos.compras) {
+            for (Compra c : Listas.getCompras()) {
                 dtmModelo.addRow(new Object[]{c.getId(), c.getNombre(),
-                    c.getCantidad(), c.getCostoUnidad(), c.getCostoTotal()});
+                    c.getStock(), c.getCostoUnidad(), c.getCostoTotal()});
             }
+            
+            
+            for (int i = 0; i < Listas.getCompras().size()-1; i++) {
+                for (int j = 0; j < Listas.getProductos().size() - 1; j++) {
+                    if (Listas.getCompras().get(i).getId().equals(Listas.getProductos().get(j).getId())) {
+                        int compraRealizada = Listas.getCompras().get(i).getStock();
+                        Listas.getProductos().get(j).setStock(
+                        Listas.getProductos().get(j).getStock()+compraRealizada);
+                    }
+                }
+            }
+
             LimpiarGUI();
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un número "+

@@ -5,6 +5,7 @@
  */
 package ec.edu.epn.VentanasProyectoFinal;
 
+import ec.edu.epn.ClasesProyectoFinal.*;
 import ec.edu.epn.ClasesProyectoFinal.Venta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,12 +34,7 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
         tblDatos.setModel(dtmModelo);
     }
 
-    public void llenarTabla(){
-         for (Venta v: GUIEquiposInformaticos.ventas)
-         dtmModelo.addRow(new Object[]{v.getId(), v.getNombre(),
-             v.getCantidad(), v.getCostoUnidad(), v.getCostoTotal()});
-        
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,11 +195,23 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
             //txtCostoTotal.setText(""+cantidad*costoUnidad);
             double costoTotal;
             costoTotal = cantidad * costoUnidad;
-            GUIEquiposInformaticos.ventas.add(new Venta(id, nombre, cantidad, costoUnidad, costoTotal));
+            Listas.getVentas().add(new Venta("",id, nombre, cantidad, costoUnidad, costoTotal));
+            //GUIEquiposInformaticos.ventas.add(new Venta(id, nombre, cantidad, costoUnidad, costoTotal));
             dtmModelo.setRowCount(0);
-            for (Venta v : GUIEquiposInformaticos.ventas) {
+            for (Venta v : Listas.getVentas()) {
                 dtmModelo.addRow(new Object[]{v.getId(), v.getNombre(),
-                    v.getCantidad(), v.getCostoUnidad(), v.getCostoTotal()});
+                    v.getStock(), v.getCostoUnidad(), v.getCostoTotal()});
+            }
+            
+            for (int i = 0; i < Listas.getVentas().size() - 1; i++) {
+                for (int j = 0; j < Listas.getProductos().size() - 1; j++) {
+                    if (Listas.getVentas().get(i).getId() == Listas.getProductos().get(j).getId()) {
+                        int ventaRealizada = Listas.getVentas().get(i).getStock();
+                        Listas.getProductos().get(j).setStock(
+                                Listas.getProductos().get(j).getStock() - ventaRealizada);
+                    }
+                }
+
             }
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un número "+

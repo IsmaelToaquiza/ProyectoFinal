@@ -19,9 +19,9 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
     PnlRegistrarVenta panelRegistrarVenta;
     PnlVerificarStock panelVerificarStock;
     
-    static ArrayList<Stock> stock;
-    static ArrayList<Compra> compras;
-    static ArrayList<Venta> ventas;
+    //static ArrayList<P> stock;
+    //static ArrayList<Compra> compras;
+    //static ArrayList<Venta> ventas;
     /**
      * Creates new form GUIEquiposInformáticos
      */
@@ -32,9 +32,9 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         panelRegistrarVenta = new PnlRegistrarVenta();
         panelVerificarStock = new PnlVerificarStock();
         
-        stock = new ArrayList<>();
-        compras = new ArrayList<>();
-        ventas = new ArrayList<>();
+        //stock = new ArrayList<>();
+        //compras = new ArrayList<>();
+        //ventas = new ArrayList<>();
         
     }
 
@@ -110,27 +110,29 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
 
     private void mnRegistrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarCompraActionPerformed
         // TODO add your handling code here:
+        panelRegistrarVenta.setVisible(false);
+        panelVerificarStock.setVisible(false);
+
         panelRegistrarCompra.setVisible(true);
-        panelRegistrarCompra.setSize(550,500);
-        panelRegistrarCompra.setLocation(300,50);
+        panelRegistrarCompra.setSize(550, 500);
+        panelRegistrarCompra.setLocation(300, 50);
         this.add(panelRegistrarCompra);
         revalidate();
         repaint();
-        panelRegistrarVenta.setVisible(false);
-        panelRegistrarCompra.llenarTabla();
-       
         
         
     }//GEN-LAST:event_mnRegistrarCompraActionPerformed
 
     private void mnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarVentaActionPerformed
         // TODO add your handling code here:
+        panelRegistrarCompra.setVisible(false);
+        panelVerificarStock.setVisible(false);
+        
         panelRegistrarVenta.setVisible(true);
         panelRegistrarVenta.setSize(550,500);
         panelRegistrarVenta.setLocation(300,50);
         
-        panelRegistrarCompra.setVisible(false);
-        panelRegistrarVenta.llenarTabla();
+
         this.add(panelRegistrarVenta);
         revalidate();
         repaint();
@@ -141,13 +143,12 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
 
     private void mnVerificarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerificarStockActionPerformed
         // TODO add your handling code here:
+        panelRegistrarVenta.setVisible(false);
+        panelRegistrarCompra.setVisible(false);
+        
         panelVerificarStock.setVisible(true);
         panelVerificarStock.setSize(550, 500);
         panelVerificarStock.setLocation(300, 50);
-   
-        panelRegistrarVenta.setVisible(false);
-        panelRegistrarCompra.setVisible(false);
-        panelVerificarStock.llenarTabla();
         this.add(panelVerificarStock);
         revalidate();
         repaint();

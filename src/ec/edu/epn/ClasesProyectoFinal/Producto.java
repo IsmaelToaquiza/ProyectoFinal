@@ -9,26 +9,28 @@ package ec.edu.epn.ClasesProyectoFinal;
  *
  * @author Ismael
  */
-public class Registro {
+public class Producto {
     
     //declaracion de variables
     protected String id;
     protected String nombre;
-    protected int cantidad;
     protected double costoUnidad;
     protected double costoTotal;
-
-    public Registro(String id, String nombre, int cantidad, double costoUnidad, double costoTotal) {
+    protected int stock;
+    protected String existencias;
+    
+    public Producto(String id, String nombre, int stock, double costoUnidad, double costoTotal) {
         this.id = id;
         this.nombre = nombre;
-        this.cantidad = cantidad;
+        this.stock = stock;
         this.costoUnidad = costoUnidad;
         this.costoTotal = costoTotal;
     }
-    public Registro(String id, String nombre,int cantidad) {
+    
+    public Producto(String id, String nombre,int stock) {
         this.id = id;
         this.nombre = nombre;
-        this.cantidad = cantidad;
+        this.stock = stock;
     }
 
     public String getId() {
@@ -46,15 +48,7 @@ public class Registro {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
+    
     public double getCostoUnidad() {
         return costoUnidad;
     }
@@ -64,17 +58,29 @@ public class Registro {
     }
 
     public double getCostoTotal() {
-        return costoTotal= this.cantidad*this.costoUnidad;
+        return costoTotal= this.stock*this.costoUnidad;
     }
 
     public void setCostoTotal(double costoTotal) {
         this.costoTotal = costoTotal;
     }
 
-    @Override
-    public String toString() {
-        return this.id+this.nombre+this.cantidad; //To change body of generated methods, choose Tools | Templates.
+    public int getStock() {
+        return stock;
     }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(String existencias) {
+        this.existencias = existencias;
+    }
+
 
     
     

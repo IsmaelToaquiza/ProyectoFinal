@@ -7,18 +7,15 @@ package ec.edu.epn.ClasesProyectoFinal;
 
 import javax.swing.JTextField;
 
-public class Compra extends Registro{
+public class Compra extends Producto{
     
-    public double egresoTotal;
+    private String fecha;
     
-    public Compra(String id, String nombre, int cantidad, double costoUnidad,double costoTotal) {
-        super(id, nombre, cantidad, costoUnidad, costoTotal);
+    public Compra(String fecha,String id, String nombre, int stock, double costoUnidad, double costoTotal) {
+        super(id, nombre, stock, costoUnidad, costoTotal);
+        this.fecha = fecha;
+    }
+    
         
-    }
-
-    public double movimientoEntrada(int cantidad, double costoUnidad){
-        return this.egresoTotal= cantidad*costoUnidad;
-    }
-    
   
 }

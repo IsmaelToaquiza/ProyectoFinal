@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class PnlVerificarStock extends javax.swing.JPanel {
 
     DefaultTableModel dtmModelo;
-    static ArrayList<Stock> stock = new ArrayList<>();
+   
 
     /**
      * Creates new form PnlVerificarStock
@@ -33,11 +33,6 @@ public class PnlVerificarStock extends javax.swing.JPanel {
     }
     
     public void llenarTabla() {
-
-        for (Stock s : stock) {
-            dtmModelo.addRow(new Object[]{s.getId(), s.getNombre(),
-                s.getCantidad(), s.getExistencias()});
-        }
 
     }
     /**
@@ -111,27 +106,21 @@ public class PnlVerificarStock extends javax.swing.JPanel {
 
     private void btnVerificarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarStockActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i <= Listas.getProductos().size() - 1; i++) {
+            if (Listas.getProductos().get(i).getStock() < 0) {
+                Listas.getProductos().get(i).setExistencias("No hay producto");
+            } else {
+                Listas.getProductos().get(i).setExistencias("Aun hay producto");
 
-        for (int i = 0; i < GUIEquiposInformaticos.compras.size() && i < GUIEquiposInformaticos.ventas.size(); i++) {
-            int cantidadEntrada = GUIEquiposInformaticos.compras.get(i).getCantidad();
-            int cantidadSalida = GUIEquiposInformaticos.ventas.get(i).getCantidad();
-            int cantidadMercancia = cantidadEntrada - cantidadSalida;
-            stock.add(new Stock(
-            GUIEquiposInformaticos.compras.get(i).getId(),
-            GUIEquiposInformaticos.compras.get(i).getNombre(), cantidadMercancia,
-            GUIEquiposInformaticos.stock.get(i).verificarStock(cantidadEntrada, cantidadSalida)));
-            txaRespuesta.setText(toString());
-            
+            }
         }
-        
-       
-        dtmModelo.setRowCount(0);
-        for (Stock s : stock) {
+        for (Producto s : Listas.getProductos()) {
             dtmModelo.addRow(new Object[]{s.getId(), s.getNombre(),
-                s.getCantidad(), s.getExistencias()});
+                s.getStock(), s.getExistencias()});
+
         }
-        
-        
+
+
     }//GEN-LAST:event_btnVerificarStockActionPerformed
 
 
