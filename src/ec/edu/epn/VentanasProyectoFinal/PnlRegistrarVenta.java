@@ -34,7 +34,7 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
     }
 
     public void llenarTabla(){
-         for (Venta v: ventas)
+         for (Venta v: GUIEquiposInformaticos.ventas)
          dtmModelo.addRow(new Object[]{v.getId(), v.getNombre(),
              v.getCantidad(), v.getCostoUnidad(), v.getCostoTotal()});
         
@@ -199,9 +199,9 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
             //txtCostoTotal.setText(""+cantidad*costoUnidad);
             double costoTotal;
             costoTotal = cantidad * costoUnidad;
-            ventas.add(new Venta(id, nombre, cantidad, costoUnidad, costoTotal));
+            GUIEquiposInformaticos.ventas.add(new Venta(id, nombre, cantidad, costoUnidad, costoTotal));
             dtmModelo.setRowCount(0);
-            for (Venta v : ventas) {
+            for (Venta v : GUIEquiposInformaticos.ventas) {
                 dtmModelo.addRow(new Object[]{v.getId(), v.getNombre(),
                     v.getCantidad(), v.getCostoUnidad(), v.getCostoTotal()});
             }
