@@ -7,14 +7,19 @@ package ec.edu.epn.VentanasProyectoFinal;
 
 
 import ec.edu.epn.ClasesProyectoFinal.*;
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
  * @author AnitaGabriela
  */
 public class GUIEquiposInformaticos extends javax.swing.JFrame {
-
+    ImagenFondo i = new ImagenFondo();
     PnlRegistrarCompra panelRegistrarCompra;
     PnlRegistrarVenta panelRegistrarVenta;
     PnlVerificarStock panelVerificarStock;
@@ -26,12 +31,20 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
      * Creates new form GUIEquiposInformáticos
      */
     public GUIEquiposInformaticos() {
+   
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setContentPane(i);
+        this.setLocationRelativeTo(null);
+        setResizable(false);
+
+        //this.setExtendedState(MAXIMIZED_BOTH);
         panelRegistrarCompra = new PnlRegistrarCompra();
         panelRegistrarVenta = new PnlRegistrarVenta();
         panelVerificarStock = new PnlVerificarStock();
+
         
+      /*  panelRegistrarCompra.setSize(838, 645);
+        panelRegistrarCompra.setLocation(0, 0);*/
         //stock = new ArrayList<>();
         //compras = new ArrayList<>();
         //ventas = new ArrayList<>();
@@ -98,25 +111,29 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 838, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 624, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnRegistrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarCompraActionPerformed
         // TODO add your handling code here:
+     
         panelRegistrarVenta.setVisible(false);
         panelVerificarStock.setVisible(false);
 
         panelRegistrarCompra.setVisible(true);
-        panelRegistrarCompra.setSize(550, 500);
-        panelRegistrarCompra.setLocation(300, 50);
-        this.add(panelRegistrarCompra);
+        /*panelRegistrarCompra.setSize(550, 500);
+        panelRegistrarCompra.setLocation(300, 50);*/
+        panelRegistrarCompra.setSize(838, 645);
+        panelRegistrarCompra.setLocation(0, 0);
+        this.add(panelRegistrarCompra, BorderLayout.CENTER);
         revalidate();
         repaint();
         
@@ -192,6 +209,19 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         });
     }
 
+    class ImagenFondo extends JPanel
+    {
+        private Image imagen;
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("Fondo.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

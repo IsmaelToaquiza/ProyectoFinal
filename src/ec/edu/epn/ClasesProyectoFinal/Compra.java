@@ -15,6 +15,10 @@ public class Compra extends Producto{
         super(id, nombre, stock, costoUnidad, costoTotal);
         this.fecha = fecha;
     }
+
+    public String getFecha() {
+        return fecha;
+    }
     
         
   
