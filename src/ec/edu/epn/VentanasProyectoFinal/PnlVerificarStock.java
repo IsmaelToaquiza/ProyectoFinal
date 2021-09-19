@@ -15,10 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author AnitaGabriela
  */
 public class PnlVerificarStock extends javax.swing.JPanel {
-
     DefaultTableModel dtmModelo;
-   
-
     /**
      * Creates new form PnlVerificarStock
      */
@@ -41,18 +38,16 @@ public class PnlVerificarStock extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnVerificarStock = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
+        btnVerificarStock = new javax.swing.JButton();
+        lblFondoVerificarStock = new javax.swing.JLabel();
 
-        btnVerificarStock.setText("Verificar Stock");
-        btnVerificarStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerificarStockActionPerformed(evt);
-            }
-        });
+        setBackground(new java.awt.Color(255, 255, 255));
+        setOpaque(false);
 
+        tblDatos.setBackground(new java.awt.Color(0, 51, 51));
+        tblDatos.setForeground(new java.awt.Color(255, 255, 255));
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -66,74 +61,67 @@ public class PnlVerificarStock extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblDatos);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVerificarStock)
-                        .addGap(183, 183, 183))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(btnVerificarStock)
-                .addContainerGap(188, Short.MAX_VALUE))
-        );
+        btnVerificarStock.setBackground(new java.awt.Color(255, 255, 255));
+        btnVerificarStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVerificarStock.setText("Verificar Stock");
+        btnVerificarStock.setOpaque(false);
+        btnVerificarStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerificarStockActionPerformed(evt);
+            }
+        });
+
+        lblFondoVerificarStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/epn/VentanasProyectoFinal/FondoPnlRegistrarCompra.png"))); // NOI18N
+        lblFondoVerificarStock.setMaximumSize(new java.awt.Dimension(838, 645));
+        lblFondoVerificarStock.setPreferredSize(new java.awt.Dimension(838, 645));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(btnVerificarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lblFondoVerificarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111)
+                .addComponent(btnVerificarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(lblFondoVerificarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarStockActionPerformed
         // TODO add your handling code here:
-      
         for (int i = 0; i <= Listas.getProductos().size() - 1; i++) {
             if (Listas.getProductos().get(i).getStock() <= 0) {
                 Listas.getProductos().get(i).setExistencias("No hay producto");
             } else {
                 Listas.getProductos().get(i).setExistencias("Aun hay producto");
-                
             }
 
-        dtmModelo.setRowCount(0);
-        for (Producto s : Listas.getProductos()) { 
-            dtmModelo.addRow(new Object[]{s.getId(), s.getNombre(),
-                s.getStock(), s.getExistencias()});
-}
+            dtmModelo.setRowCount(0);
+            for (Producto s : Listas.getProductos()) {
+                dtmModelo.addRow(new Object[]{s.getId(), s.getNombre(),
+                    s.getStock(), s.getExistencias()});
+            }
         }
-
-        
-
     }//GEN-LAST:event_btnVerificarStockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificarStock;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFondoVerificarStock;
     private javax.swing.JTable tblDatos;
     // End of variables declaration//GEN-END:variables
 }

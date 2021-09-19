@@ -42,14 +42,29 @@ public class PnlRegistrarProducto extends javax.swing.JPanel {
         txtPrecioUnitario = new javax.swing.JTextField();
         btnGuardarProducto = new javax.swing.JButton();
 
-        lblNombre.setText("Nombre");
+        setOpaque(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(838, 645));
+
+        lblNombre.setBackground(new java.awt.Color(255, 255, 255));
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblNombre.setText("Nombre");
+        lblNombre.setOpaque(true);
+
+        lblId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblId.setText("ID");
 
+        lblPrecioUnitario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblPrecioUnitario.setText("Precio Unitario");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Stock Inicial");
 
+        btnGuardarProducto.setBackground(new java.awt.Color(0, 51, 51));
+        btnGuardarProducto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarProducto.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarProducto.setText("Guardar Producto");
         btnGuardarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,26 +77,22 @@ public class PnlRegistrarProducto extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(113, 113, 113)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblPrecioUnitario)
-                        .addGap(193, 193, 193)
-                        .addComponent(txtPrecioUnitario, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre)
-                            .addComponent(lblId)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(txtStock))))
-                .addGap(89, 89, 89))
+                    .addComponent(lblId)
+                    .addComponent(lblNombre)
+                    .addComponent(jLabel1)
+                    .addComponent(lblPrecioUnitario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioUnitario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(144, 144, 144))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(btnGuardarProducto)
+                .addGap(192, 192, 192)
+                .addComponent(btnGuardarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,34 +106,34 @@ public class PnlRegistrarProducto extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblId)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrecioUnitario)
                     .addComponent(txtPrecioUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardarProducto)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btnGuardarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -135,20 +146,22 @@ public class PnlRegistrarProducto extends javax.swing.JPanel {
             double costoUnidad = Double.parseDouble(txtPrecioUnitario.getText());
 
             Listas.getProductos().add(new Producto(id, nombre, cantidad, costoUnidad));
+            LimpiarGUI();
         } catch (NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar un número "+
-                    "para la cantidad y el costo unitario ",
-                     "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número "
+                    + "para la cantidad y el costo unitario ",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Entrada Incorrecta!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-
-
-        
-        
     }//GEN-LAST:event_btnGuardarProductoActionPerformed
-
+    public void LimpiarGUI() {
+        txtNombre.setText("");
+        txtId.setText("");
+        txtStock.setText("");
+        txtPrecioUnitario.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarProducto;

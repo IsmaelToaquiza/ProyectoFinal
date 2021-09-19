@@ -70,7 +70,9 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         setTitle("INVENTARIO");
 
         mnActividades.setText("Actividades");
+        mnActividades.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
+        mnRegistrarProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mnRegistrarProducto.setText("Registrar Producto");
         mnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +81,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         });
         mnActividades.add(mnRegistrarProducto);
 
+        mnRegistrarCompra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mnRegistrarCompra.setText("Registrar Compra");
         mnRegistrarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +90,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         });
         mnActividades.add(mnRegistrarCompra);
 
+        mnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mnRegistrarVenta.setText("Registrar Venta");
         mnRegistrarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,8 +101,11 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
 
         jMenuBar1.add(mnActividades);
 
+        mnStock.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         mnStock.setText("Stock");
+        mnStock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
+        mnVerificarStock.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mnVerificarStock.setText("Verificar Stock");
         mnVerificarStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +126,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         pack();
@@ -184,9 +191,9 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
          panelVerificarStock.setVisible(false);
          
         panelRegistrarProducto.setVisible(true);
-        panelRegistrarProducto.setSize(550, 500);
-        panelRegistrarProducto.setLocation(300, 50);
-        this.add(panelRegistrarProducto);
+        panelRegistrarProducto.setSize(838, 645);
+        panelRegistrarProducto.setLocation(0, 0);
+        this.add(panelRegistrarProducto,BorderLayout.CENTER);
         revalidate();
         repaint();
 
@@ -228,19 +235,19 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         });
     }
 
-    class ImagenFondo extends JPanel
-    {
+    class ImagenFondo extends JPanel {
+
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
+        public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("Fondo.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
         }
     }
-            
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
