@@ -23,6 +23,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
     PnlRegistrarCompra panelRegistrarCompra;
     PnlRegistrarVenta panelRegistrarVenta;
     PnlVerificarStock panelVerificarStock;
+    PnlRegistrarProducto panelRegistrarProducto;
     
     //static ArrayList<P> stock;
     //static ArrayList<Compra> compras;
@@ -41,14 +42,8 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         panelRegistrarCompra = new PnlRegistrarCompra();
         panelRegistrarVenta = new PnlRegistrarVenta();
         panelVerificarStock = new PnlVerificarStock();
+        panelRegistrarProducto = new PnlRegistrarProducto();
 
-        
-      /*  panelRegistrarCompra.setSize(838, 645);
-        panelRegistrarCompra.setLocation(0, 0);*/
-        //stock = new ArrayList<>();
-        //compras = new ArrayList<>();
-        //ventas = new ArrayList<>();
-        
     }
 
     /**
@@ -63,6 +58,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnActividades = new javax.swing.JMenu();
+        mnRegistrarProducto = new javax.swing.JMenuItem();
         mnRegistrarCompra = new javax.swing.JMenuItem();
         mnRegistrarVenta = new javax.swing.JMenuItem();
         mnStock = new javax.swing.JMenu();
@@ -74,6 +70,14 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         setTitle("INVENTARIO");
 
         mnActividades.setText("Actividades");
+
+        mnRegistrarProducto.setText("Registrar Producto");
+        mnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnRegistrarProductoActionPerformed(evt);
+            }
+        });
+        mnActividades.add(mnRegistrarProducto);
 
         mnRegistrarCompra.setText("Registrar Compra");
         mnRegistrarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -124,15 +128,14 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
 
     private void mnRegistrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarCompraActionPerformed
         // TODO add your handling code here:
-     
+        panelRegistrarProducto.setVisible(false);
         panelRegistrarVenta.setVisible(false);
         panelVerificarStock.setVisible(false);
 
         panelRegistrarCompra.setVisible(true);
-        /*panelRegistrarCompra.setSize(550, 500);
-        panelRegistrarCompra.setLocation(300, 50);*/
         panelRegistrarCompra.setSize(838, 645);
         panelRegistrarCompra.setLocation(0, 0);
+        panelRegistrarCompra.mostrarProductos();
         this.add(panelRegistrarCompra, BorderLayout.CENTER);
         revalidate();
         repaint();
@@ -144,12 +147,12 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelRegistrarCompra.setVisible(false);
         panelVerificarStock.setVisible(false);
+        panelRegistrarProducto.setVisible(false);
         
         panelRegistrarVenta.setVisible(true);
         panelRegistrarVenta.setSize(550,500);
+        panelRegistrarVenta.mostrarProductos();
         panelRegistrarVenta.setLocation(300,50);
-        
-
         this.add(panelRegistrarVenta);
         revalidate();
         repaint();
@@ -162,6 +165,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelRegistrarVenta.setVisible(false);
         panelRegistrarCompra.setVisible(false);
+        panelRegistrarProducto.setVisible(false);
         
         panelVerificarStock.setVisible(true);
         panelVerificarStock.setSize(550, 500);
@@ -172,6 +176,21 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_mnVerificarStockActionPerformed
+
+    private void mnRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRegistrarProductoActionPerformed
+        // TODO add your handling code here:
+        panelRegistrarVenta.setVisible(false);
+        panelRegistrarCompra.setVisible(false);
+         panelVerificarStock.setVisible(false);
+         
+        panelRegistrarProducto.setVisible(true);
+        panelRegistrarProducto.setSize(550, 500);
+        panelRegistrarProducto.setLocation(300, 50);
+        this.add(panelRegistrarProducto);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_mnRegistrarProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +246,7 @@ public class GUIEquiposInformaticos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu mnActividades;
     private javax.swing.JMenuItem mnRegistrarCompra;
+    private javax.swing.JMenuItem mnRegistrarProducto;
     private javax.swing.JMenuItem mnRegistrarVenta;
     private javax.swing.JMenu mnStock;
     private javax.swing.JMenuItem mnVerificarStock;

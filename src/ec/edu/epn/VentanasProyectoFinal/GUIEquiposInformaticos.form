@@ -14,6 +14,14 @@
             <Property name="text" type="java.lang.String" value="Actividades"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnRegistrarProducto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Producto"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnRegistrarProductoActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnRegistrarCompra">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrar Compra"/>

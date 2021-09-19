@@ -30,10 +30,20 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
         dtmModelo.addColumn("Nombre");
         dtmModelo.addColumn("Cantidad");
         dtmModelo.addColumn("Costo Unidad");
-        dtmModelo.addColumn("Costo Total");
+        dtmModelo.addColumn("Valor A Pagar");
         tblDatos.setModel(dtmModelo);
     }
 
+    public void mostrarProductos() {
+        //Limpiar el contenido del combo
+        cmbNombre.removeAllItems();
+
+        //Presentar el nombre de cada categoria que se guardo en la lista
+        for (int i = 0; i < Listas.getProductos().size(); i++) {
+            cmbNombre.addItem(Listas.getProductos().get(i).getNombre());
+        }
+
+    }
 
 
     /**
@@ -53,11 +63,11 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
         lblNombre = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
         lblCostoUnidad = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         txtCostoUnidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        cmbNombre = new javax.swing.JComboBox<>();
         btnRegistrarVenta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
@@ -84,7 +94,16 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
 
         lblCantidad.setText("Cantidad");
 
+        txtId.setEnabled(false);
+
         lblCostoUnidad.setText("Costo Unidad");
+
+        cmbNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNombreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,8 +125,8 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCostoUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(txtCantidad)
-                            .addComponent(txtNombre)
-                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cmbNombre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(202, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,7 +141,7 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCantidad)
@@ -168,9 +187,8 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(25, Short.MAX_VALUE))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,31 +206,26 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
     private void btnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVentaActionPerformed
         // TODO add your handling code here:
         try {
-            String id = txtId.getText();
-            String nombre = txtNombre.getText();
+            
+            String nombre = (String) cmbNombre.getSelectedItem();
+            String id = "";
+            for (int i = 0; i <= Listas.getProductos().size() - 1; i++) {
+                if (nombre.equals(Listas.getProductos().get(i).getNombre())) {
+                    id = Listas.getProductos().get(i).getId();
+                    txtId.setText(id);
+                }
+            }
             int cantidad = Integer.parseInt(txtCantidad.getText());
             double costoUnidad = Double.parseDouble(txtCostoUnidad.getText());
-            //txtCostoTotal.setText(""+cantidad*costoUnidad);
             double costoTotal;
             costoTotal = cantidad * costoUnidad;
             Listas.getVentas().add(new Venta("",id, nombre, cantidad, costoUnidad, costoTotal));
-            //GUIEquiposInformaticos.ventas.add(new Venta(id, nombre, cantidad, costoUnidad, costoTotal));
             dtmModelo.setRowCount(0);
             for (Venta v : Listas.getVentas()) {
-                dtmModelo.addRow(new Object[]{v.getId(), v.getNombre(),
-                    v.getStock(), v.getCostoUnidad(), v.getCostoTotal()});
+                dtmModelo.addRow(new Object[]{v.getProducto().getId(), v.getProducto().getNombre(),
+                    v.getCantidad(), v.getProducto().getCostoUnidad(), v.getCostoTotal()});
             }
             
-            for (int i = 0; i < Listas.getVentas().size() - 1; i++) {
-                for (int j = 0; j < Listas.getProductos().size() - 1; j++) {
-                    if (Listas.getVentas().get(i).getId() == Listas.getProductos().get(j).getId()) {
-                        int ventaRealizada = Listas.getVentas().get(i).getStock();
-                        Listas.getProductos().get(j).setStock(
-                                Listas.getProductos().get(j).getStock() - ventaRealizada);
-                    }
-                }
-
-            }
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un número "+
                     "para la cantidad y el costo unitario ",
@@ -223,9 +236,33 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnRegistrarVentaActionPerformed
 
+    private void cmbNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNombreActionPerformed
+        // TODO add your handling code here:
+
+        String id = "";
+        for (int i = 0; i <= Listas.getProductos().size() - 1; i++) {
+            String nombre = "";
+            nombre = cmbNombre.getSelectedItem()!=null?cmbNombre.getSelectedItem().toString():"";
+            if (nombre.equals(Listas.getProductos().get(i).getNombre())) {
+                id = Listas.getProductos().get(i).getId();
+                double costoUnidad = Listas.getProductos().get(i).getCostoUnidad();
+                txtId.setText(id);
+                txtCostoUnidad.setText(String.valueOf(costoUnidad));
+            }
+
+        }
+
+    }//GEN-LAST:event_cmbNombreActionPerformed
+    public void LimpiarGUI() {
+        txtCantidad.setText("");
+        txtCostoUnidad.setText("");
+        txtId.setText("");
+        cmbNombre.setSelectedIndex(-1);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarVenta;
+    private javax.swing.JComboBox<String> cmbNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -240,6 +277,5 @@ public class PnlRegistrarVenta extends javax.swing.JPanel {
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCostoUnidad;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

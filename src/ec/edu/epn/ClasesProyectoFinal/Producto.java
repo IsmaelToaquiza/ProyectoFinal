@@ -19,7 +19,7 @@ public class Producto {
     protected int stock;
     protected String existencias;
     
-    public Producto(String id, String nombre, int stock, double costoUnidad, double costoTotal) {
+    public Producto(String id, String nombre, int stock,double costoUnidad , double costoTotal) {
         this.id = id;
         this.nombre = nombre;
         this.stock = stock;
@@ -31,6 +31,13 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.stock = stock;
+    }    
+    
+    public Producto(String id, String nombre,int stock,double costoUnidad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.stock = stock;
+        this.costoUnidad = costoUnidad;
     }
 
     public String getId() {

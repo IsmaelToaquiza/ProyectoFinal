@@ -32,9 +32,6 @@ public class PnlVerificarStock extends javax.swing.JPanel {
         tblDatos.setModel(dtmModelo);
     }
     
-    public void llenarTabla() {
-
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,21 +111,13 @@ public class PnlVerificarStock extends javax.swing.JPanel {
         // TODO add your handling code here:
       
         for (int i = 0; i <= Listas.getProductos().size() - 1; i++) {
-            if (Listas.getProductos().get(i).getStock() < 0) {
+            if (Listas.getProductos().get(i).getStock() <= 0) {
                 Listas.getProductos().get(i).setExistencias("No hay producto");
             } else {
                 Listas.getProductos().get(i).setExistencias("Aun hay producto");
                 
             }
-     
-       /*for (int i = 0; i < Listas.getCompras().size()-1; i++) {
-                for (int j = 0; j < Listas.getProductos().size() - 1; j++) {
-                    if (Listas.getCompras().get(i).getId().equals(Listas.getProductos().get(j).getId())) {
-                        int compraRealizada = Listas.getCompras().get(i).getStock();
-                        Listas.getProductos().get(j).setStock(
-                        Listas.getProductos().get(j).getStock()+compraRealizada);
-                    }
-                }*/
+
         dtmModelo.setRowCount(0);
         for (Producto s : Listas.getProductos()) { 
             dtmModelo.addRow(new Object[]{s.getId(), s.getNombre(),

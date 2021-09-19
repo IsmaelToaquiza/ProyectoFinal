@@ -13,6 +13,7 @@ import ec.edu.epn.ClasesProyectoFinal.*;
  * @author Ismael
  */
 public class Listas {
+        
     static ArrayList<Compra> compras = new ArrayList<>();
     static ArrayList<Venta> ventas = new ArrayList<>();
     static ArrayList<Producto> productos = new ArrayList<>();
@@ -27,6 +28,7 @@ public class Listas {
 
     public static ArrayList<Producto> getProductos() {
         return productos;
-    }
-    
+    }  
+
+            
 }
